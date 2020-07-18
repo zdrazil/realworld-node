@@ -1,84 +1,14 @@
-const a = [
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-  "a",
-];
+const http = require("http");
 
-console.log(a);
+const hostname = "127.0.0.1";
+const port = 3000;
 
-const b = (a: number) => {
-  console.log(a);
-};
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "text/plain");
+  res.end("Hello World");
+});
 
-b(5);
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
