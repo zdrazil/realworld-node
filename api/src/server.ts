@@ -8,6 +8,7 @@ const server = http.createServer((req, res) => {
   const queryObject = url.parse(req.url, true).query
   console.log(queryObject)
   const { userName } = queryObject
+
   res.statusCode = 200
   res.setHeader("Content-Type", "text/plain")
   res.end(`Hello ${userName || "user"}! :D How are you? \n`)
