@@ -11,8 +11,20 @@ interface IUser extends mongoose.Document {
 
 const UserSchema = new mongoose.Schema<IUser>(
   {
-    username: String,
-    email: String,
+    username: {
+      type: String,
+      lowercase: true,
+      required: [true, "can't be blank"],
+      match: [/^[a-zA-Z0-9]+$/, "is invalid"],
+      index: true,
+    },
+    email: {
+      type: String,
+      lowercase: true,
+      required: [true, "can't be blank"],
+      match: [/\S+@\S+\.\S+/, "is invalid"],
+      index: true,
+    },
     bio: String,
     image: String,
     hash: String,
