@@ -1,19 +1,18 @@
-import http = require("http")
-import url = require("url")
+import errorHandler from "errorhandler"
 
-const hostname = "127.0.0.1"
-const port = 3000
+import app from "./app"
 
-const server = http.createServer((req, res) => {
-  const queryObject = url.parse(req.url, true).query
-  console.log(queryObject)
-  const { userName } = queryObject
+/**
+ * Error Handler. Provides full stack - remove for production
+ */
+app.use(errorHandler())
 
-  res.statusCode = 200
-  res.setHeader("Content-Type", "text/plain")
-  res.end(`Hello ${userName || "user"}! :D How are you? \n`)
+/**
+ * Start Express server.
+ */
+const server = app.listen(app.get("port"), () => {
+  console.log("  App is running at http://localhost:%d in %s mode", app.get("port"), app.get("env"))
+  console.log("  Press CTRL-C to stop\n")
 })
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`)
-})
+export default server
