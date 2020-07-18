@@ -14,7 +14,16 @@ interface IUser extends mongoose.Document {
   setPassword: (password: string) => void;
   isValidPassword: (password: string) => boolean;
   generateJWT: () => string;
+  toAuthJSON: () => UserResult;
 }
+
+type UserResult = {
+  username: string;
+  email: string;
+  bio: string;
+  image: string;
+  token: string;
+};
 
 const UserSchema = new mongoose.Schema<IUser>(
   {
@@ -73,6 +82,16 @@ UserSchema.methods.generateJWT = function () {
     },
     secret,
   );
+};
+
+UserSchema.methods.toAuthJSON = function () {
+  return {
+    username: this.username,
+    email: this.email,
+    token: this.generateJWT(),
+    bio: this.bio,
+    image: this.image,
+  };
 };
 
 UserSchema.plugin(uniqueValidator, { message: 'is already taken.' });
