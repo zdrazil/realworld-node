@@ -5,6 +5,7 @@
     "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
+        "plugin:prettier/recommended",
         "prettier",
         "prettier/@typescript-eslint"
     ],
@@ -14,10 +15,11 @@
         "sourceType": "module"
     },
     "plugins": [
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "prettier"
     ],
     "rules": {
-        "comma-dangle": ["error", "always"],
+        "comma-dangle": ["error", "always-multiline"],
         "indent": [
             "error",
             2
@@ -30,10 +32,7 @@
             "error",
             "double"
         ],
-        "semi": [
-            "error",
-            "never"
-        ],
+        "prettier/prettier": "error",
         "@typescript-eslint/no-unused-vars": "warn",
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/no-explicit-any": 1,
