@@ -1,8 +1,7 @@
-import express from 'express';
-import jwt from 'express-jwt';
+import jwt, { GetTokenCallback } from 'express-jwt';
 import { secret } from '../config';
 
-const getTokenFromHeader = (req: express.Request) => {
+const getTokenFromHeader: GetTokenCallback = (req) => {
   if (
     req.headers.authorization &&
     req.headers.authorization.split(' ')[0] === 'Token'
