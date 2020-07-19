@@ -76,7 +76,7 @@ router.post('/users/login', (req, res, next) => {
   })(req, res, next);
 });
 
-router.post('/api/users', (req, res, next) => {
+router.post('/users', (req, res, next) => {
   const user = new User();
   const { username, email, password } = req.body.user;
 
