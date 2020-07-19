@@ -2,6 +2,8 @@
 import compression from 'compression'; // compresses requests
 import bodyParser from 'body-parser';
 import express from 'express';
+// import {} from './models/User';
+// import {} from './config/passport';
 
 const app = express();
 

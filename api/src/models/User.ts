@@ -4,7 +4,7 @@ import crypto from 'crypto';
 import jwt from 'jsonwebtoken';
 import { secret } from '../config';
 
-interface IUser extends mongoose.Document {
+export interface IUser extends mongoose.Document {
   username: string;
   email: string;
   bio: string;
