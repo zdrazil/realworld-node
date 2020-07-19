@@ -41,6 +41,7 @@
             "warn", {
                 "ignoreParameters": true
             }
-        ]
+        ],
+        "@typescript-eslint/ban-ts-comment": "off"
     }
 }

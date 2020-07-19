@@ -1,6 +1,9 @@
 import express, { ErrorRequestHandler } from 'express';
+import users from './users';
 
 const router = express.Router();
+
+router.use('/', users);
 
 const validationErrorHandler: ErrorRequestHandler = (err, _req, res, next) => {
   if (err.name === 'ValidationError') {
