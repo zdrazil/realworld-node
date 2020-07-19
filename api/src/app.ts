@@ -16,4 +16,6 @@ app.get('/', (_req, res) => res.send('Hello World!'));
 import {} from './models/User';
 import {} from './config/passport';
 
+app.use(require('./routes'));
+
 export default app;
