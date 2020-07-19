@@ -5,4 +5,4 @@ const router = express.Router();
 
 router.use('/api', api);
 
-export * from './auth';
+export default router;

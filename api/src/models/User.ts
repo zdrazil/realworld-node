@@ -96,4 +96,4 @@ UserSchema.methods.toAuthJSON = function () {
 
 UserSchema.plugin(uniqueValidator, { message: 'is already taken.' });
 
-mongoose.model<IUser>('User', UserSchema);
+export default mongoose.model<IUser>('User', UserSchema);

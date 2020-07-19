@@ -7,6 +7,10 @@ import { IUser } from '../../models';
 const router = express.Router();
 const User = mongoose.model<IUser>('User');
 
+router.get('/', auth.optional, (_req, res, _next) => {
+  res.send('Hello world');
+});
+
 router.get('/user', auth.required, (req, res, next) => {
   // @ts-ignore
   User.findById(req.payload.id)
@@ -85,3 +89,5 @@ router.post('/api/users', (req, res, next) => {
     .then(() => res.json({ user: user.toAuthJSON() }))
     .catch(next);
 });
+
+export default router;
